@@ -92,9 +92,5 @@ class Character ():
     def death(self):
         print(f"{self.name} died. :(")
 
-<<<<<<< HEAD
-# testing 123
-=======
 
 print(fightingClass.wizard)
->>>>>>> Ashley
