@@ -48,5 +48,7 @@ class Dwarf(Character):
         self.hp = 10
 
         print(self)
+        return self
 
-herring = Dwarf("Herring")
+        
+herring = Dwarf("Herring", 10, 10, 10, 6, 4, 7)
