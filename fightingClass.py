@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from random import randrange
 
 class fightingClasses():
@@ -18,6 +17,3 @@ rogue = {
     "attack": fightingClasses("Sneak attack", randrange(1,7), 6, 1,0),
     "passive": fightingClasses( "Theives' Cant", randrange(1,7), 1, 0)
 }
-=======
-# pass
->>>>>>> c0dbe100bd655d464cc8527ba36e76ce08322bfb
