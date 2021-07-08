@@ -53,23 +53,31 @@
 # At end of a fight method, write a conditional if xp >= 100, then call function levelUp
 # Call savingThrow in attack if 
 
+from random import randrange
+import fightingClass
+
 
 class Character ():
 
-    def __init__(self, name: str, strength: int, dexterity: int, consitution: int, wisdom: int, charisma: int, hp: int = 0, xp: int = 0, level: int = 1):
+    def __init__(self, name: str, fighting_class: dict, strength: int = 10, dexterity: int = 10, consitution: int = 10, wisdom: int = 10, charisma: int = 10, stamina: int = 10, mana: int = 10, hp: int = 0, xp: int = 0, level: int = 1):
         self.name = name
+        self.fighting_class = fighting_class
         self.strength = strength
         self.dexterity = dexterity
         self.constitution = consitution
         self.wisdom = wisdom
         self.charisma = charisma
+        self.stamina = stamina
+        self.mana = mana
         self.hp = hp
         self.xp = xp
         self.level = level
 
 
-    def attack(self, key: str, target: object):
-        pass
+    # def attack(self, key: str, target: object):
+        
+    #     if xp>=level*100:
+    #         levelUp(self)
 
     def damage(self, damage):
         self.hp -= damage
@@ -84,4 +92,9 @@ class Character ():
     def death(self):
         print(f"{self.name} died. :(")
 
+<<<<<<< HEAD
 # testing 123
+=======
+
+print(fightingClass.wizard)
+>>>>>>> Ashley
