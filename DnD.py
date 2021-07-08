@@ -54,7 +54,7 @@
 # Call savingThrow in attack if 
 
 
-class Character ():
+class Character:
 
     def __init__(self, name: str, strength: int, dexterity: int, consitution: int, wisdom: int, charisma: int, hp: int = 0, xp: int = 0, level: int = 1):
         self.name = name
