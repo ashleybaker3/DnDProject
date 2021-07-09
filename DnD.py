@@ -51,15 +51,21 @@
 # 4. If we have time, create a little rp that fills out the character sheet for you
 
 # At end of a fight method, write a conditional if xp >= 100, then call function levelUp
-# Call savingThrow in attack if 
+# Call savingThrow in attack if hp drops to 0 or below
 
 from random import randrange
-import fightingClass
+from fightingClass import fightingClass
+from races import *
 
 
-class Character ():
+wizard = {
+    "cantrip": fightingClass("Ray of Frost", randrange(1,7), 0, 1),
+    "spell": fightingClass("Magic Missile", randrange(1,7), 0, 1)
+}
 
-    def __init__(self, name: str, fighting_class: dict, strength: int = 10, dexterity: int = 10, consitution: int = 10, wisdom: int = 10, charisma: int = 10, stamina: int = 10, mana: int = 10, hp: int = 0, xp: int = 0, level: int = 1):
+class Character:
+
+    def __init__(self, name: str, fighting_class: dict, strength: int = 10, dexterity: int = 10, consitution: int = 10, wisdom: int = 10, charisma: int = 10, stamina: int = 10, mana: int = 10, hp: int = 6, xp: int = 0, level: int = 1):
         self.name = name
         self.fighting_class = fighting_class
         self.strength = strength
@@ -75,8 +81,9 @@ class Character ():
 
 
     # def attack(self, key: str, target: object):
-        
-    #     if xp>=level*100:
+        # if hp <= 0:
+        #     savingThrow(self)
+    #     if xp >= level*100:
     #         levelUp(self)
 
     def damage(self, damage):
@@ -87,10 +94,27 @@ class Character ():
         print(f"Yay! {self.name} leveled up!")
 
     def savingThrow(self):
-        pass
+        save = 0
+        die = 0
+        for i in range(1,7):
+            throw = randrange(1,7)
+            if save == 3:
+                self.hp = 1
+                return print(f"{self.name} lives again!")
+            elif die == 3:
+                return print(f"{self.name} dies. :( Time to pull out your backup character.")
+            elif throw > 3:
+                print(f"Saving throw {i} successful!")
+                save += 1
+            elif throw <= 3:
+                print(f"Saving throw {i} unsucessful!")
+                die+=1
 
     def death(self):
-        print(f"{self.name} died. :(")
+        print(f"{self.name} dies. :( Time to pull out your backup character.")
 
 
-print(fightingClass.wizard)
+
+Odessa = Character("Odessa", fighting_class=wizard)
+print(Odessa.fighting_class)
+Odessa.savingThrow()
